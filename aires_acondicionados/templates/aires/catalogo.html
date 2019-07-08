@@ -1,0 +1,26 @@
+{% extends 'aires/base.html' %}
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<h2>Catalogo<br><small>Vea los productos que hay!</small></h2>
+				<div class="row">
+					{% if catalogo %}
+				    	<ul>
+					    	{% for t in catalogo %}
+					      	<li>
+                                   <h3>{{ t.Nombre }}</h3>
+                                   <div class="container">
+                                   <img src="{{ t.Imagen.url }}" >
+                                   </div>
+					        	   Stock: {{t.Stock}}</br>
+					        </li>
+					    	{% endfor %}
+					    </ul>
+					{% else %}
+					    <p>No Existe Productos</p>
+					{% endif %}
+				</div>
+			<a href="/" class="btn btn-info" role="button">Volver</a>
+		</div>
+{% endblock %}
