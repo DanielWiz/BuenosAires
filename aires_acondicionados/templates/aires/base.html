@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Solution Responsive Web Template</title>
+		<title>Soluciones Buenos Aires</title>
 <!--
 
 Template 2081 Solution
@@ -48,13 +48,18 @@ http://www.tooplate.com/view/2081-solution
 				</div>
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="{% url 'inicio' %}" class="smoothScroll">INICIO</a></li>
-						<li><a href="{% url 'serviciosDatos' %}" class="smoothScroll">SERVICIOS</a></li>
-						<li><a href="{% url 'catalogo' %}" class="smoothScroll">CATALOGO</a></li>
-						<li><a href="#team" class="smoothScroll">TEAM</a></li>
-						<li><a href="#pricing" class="smoothScroll">PRICING</a></li>
+						{% if user.is_authenticated %}
+						<ul class="nav navbar-nav">
+				            <li><a href="#">BIENVENIDO, {{ user.username }}!</a></li>				            
+				            <li><a href="{% url 'inicio' %}" class="smoothScroll">INICIO</a></li>
+							<li><a href="{% url 'serviciosDatos' %}" class="smoothScroll">SERVICIOS</a></li>
+							<li><a href="{% url 'catalogo' %}" class="smoothScroll">CATALOGO</a></li>
+							<li><a href="{% url 'logout' %}">CERRAR CESIÓN</a></li>
+				        </ul>
+				        {% else %}			
 						<li><a href="{% url 'signup' %}" class="smoothScroll">REGISTRO</a></li>
 						<li><a href="{% url 'login' %}" class="smoothScroll">LOGIN</a></li>
+						{% endif %}
 					</ul>
 				</div>
 			</div>
@@ -68,8 +73,8 @@ http://www.tooplate.com/view/2081-solution
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-sm-7">
-						<p>Copyright &copy; 2016 Solution Company</p>
-						<small>Designed by tooplate</small>
+						<p>Copyright &copy; 2019 Soluciones Buenos Aires</p>
+						<small>Diseñado con bootstrap</small>
 					</div>
 					<div class="col-md-4 col-sm-5">
 						<ul class="social-icon">
